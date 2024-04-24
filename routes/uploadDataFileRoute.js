@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const uploadDataFileController = require("../controllers/uploadDataFileController");
 const multer = require("multer");
-const upload = multer({ dest: "data/" });
+const upload = multer({ dest: "/app/data/" });
 const fs = require("fs");
 
 router
