@@ -37,7 +37,13 @@ const createDataFile = (req, res) => {
           value: parseInt(value) + 1,
         })
         .then((data) => {
-          return res.json(data);
+          return knex("settings")
+            .then((data) => {
+              return res.json(data);
+            })
+            .catch((error) => {
+              return res.send(error);
+            });
         })
         .catch((error) => {
           return res.send(error);
