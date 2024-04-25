@@ -8,8 +8,8 @@ const createDataFile = (req, res) => {
   console.log("file", file);
   console.log("filename", file.filename);
 
-  const getValueWrapper = async () => {
-    const getValue = async () => {
+  const getVersionValueWrapper = async () => {
+    const getVersionValue = async () => {
       return knex("settings")
         .where("key", "Version")
         .then((data) => {
@@ -20,16 +20,15 @@ const createDataFile = (req, res) => {
           return error;
         });
     };
-    value = await getValue();
+    value = await getVersionValue();
     console.log("value", value);
   };
-  getValueWrapper();
+  getVersionValueWrapper();
 
   return knex("settings")
     .upsert({
       key: "FileURL",
       value: file.filename,
-      // `https://easyservices-cb714e81a4fb.herokuapp.com/data/${file.filename}`,
     })
     .then((data) => {
       knex("settings")
