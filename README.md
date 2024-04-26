@@ -10,8 +10,8 @@ If you would like to run this app locally -
 
 2. Create a new schema (called kirtan in my .env example) in MySQL Workbench.
 
-3. Install dependencies:
-   `` `npm i` ``
+3. Install dependencies:\
+   `npm i`
 
 4. Create a .env file in the root of the project folder with the following environment variables set to your information:
 
@@ -23,14 +23,14 @@ If you would like to run this app locally -
    DB_DATABASE=kirtan
    ```
 
-5. Configure the database:
-   `` `npm run migrate` ``
+5. Configure the database:\
+   `npm run migrate`
 
-6. If you would like to demo the app with seed data instead of uploading your own data file in app:
-   `` `npm run seed` ``
+6. If you would like to demo the app with seed data instead of uploading your own data file in app:\
+   `npm run seed`
 
-7. Run the server:
-   `` `npm start` ``
+7. Run the server:\
+   `npm start`
 
 ### Endpoints
 
