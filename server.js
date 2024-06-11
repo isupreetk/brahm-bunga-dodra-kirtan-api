@@ -19,10 +19,9 @@ app.use("/updateFileURL", updateFileURLRoute);
 
 app.get("/", (req, res) => {
   console.log("Get on server");
-  res.send("Welcome to Kirtan Server");
+  return res.send("Welcome to Kirtan Server");
 });
 
 app.listen(port, (req, res) => {
   console.log(`Connected on ${port}`);
-  res.send("Connected!");
 });
