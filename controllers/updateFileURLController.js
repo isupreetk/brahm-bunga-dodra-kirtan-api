@@ -5,15 +5,11 @@ const updateFileDetails = (req, res) => {
   const { fileURL } = req.body;
   let value;
 
-  console.log("request", req.body);
-  console.log("fileURL", fileURL);
-
   const getVersionValueWrapper = async () => {
     const getVersionValue = async () => {
       return knex("settings")
         .where("key", "Version")
         .then((data) => {
-          console.log("data", data);
           return data[0].value;
         })
         .catch((error) => {
@@ -21,7 +17,6 @@ const updateFileDetails = (req, res) => {
         });
     };
     value = await getVersionValue();
-    console.log("value", value);
   };
   getVersionValueWrapper();
 

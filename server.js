@@ -5,16 +5,13 @@ require("dotenv").config();
 
 const port = process.env.PORT;
 
-const keyFetchingRoute = require("./routes/fetchKeyRoute");
-// const uploadDataFileRoute = require("./routes/uploadDataFileRoute");
-const updateFileURLRoute = require("./routes/updateFileURLRoute");
+const keyFetchingRoute = require("./routes/fetchKeyRouter");
+const updateFileURLRoute = require("./routes/updateFileURLRouter");
 
 app.use(cors());
 app.use(express.json());
-// app.use("/data", express.static("data"));
 
 app.use("/settings", keyFetchingRoute);
-// app.use("/uploadFile", uploadDataFileRoute);
 app.use("/updateFileURL", updateFileURLRoute);
 
 app.get("/", (req, res) => {
