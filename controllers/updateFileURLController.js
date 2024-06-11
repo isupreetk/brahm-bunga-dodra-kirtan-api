@@ -5,7 +5,7 @@ const updateFileDetails = (req, res) => {
   const { fileURL } = req.body;
   let value;
 
-  console.log("request", req);
+  console.log("request", req.body);
   console.log("fileURL", fileURL);
 
   const getVersionValueWrapper = async () => {
