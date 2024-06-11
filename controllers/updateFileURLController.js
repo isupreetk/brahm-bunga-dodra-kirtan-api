@@ -2,9 +2,10 @@ const express = require("express");
 const knex = require("knex")(require("../knexfile"));
 
 const updateFileDetails = (req, res) => {
-  const fileURL = req.fileURL;
+  const { fileURL } = req.body;
   let value;
 
+  console.log("request", req);
   console.log("fileURL", fileURL);
 
   const getVersionValueWrapper = async () => {

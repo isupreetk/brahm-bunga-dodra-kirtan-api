@@ -11,7 +11,7 @@ const updateFileURLRoute = require("./routes/updateFileURLRoute");
 
 app.use(cors());
 app.use(express.json());
-app.use("/data", express.static("data"));
+// app.use("/data", express.static("data"));
 
 app.use("/settings", keyFetchingRoute);
 // app.use("/uploadFile", uploadDataFileRoute);
