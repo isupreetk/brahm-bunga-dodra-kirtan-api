@@ -8,7 +8,7 @@ const settings_data = [
   {
     key: "FileURL",
     value:
-      "https://brahmbungadodra.org/kirtanrecords/kirtansearchsourcefiles/kirtansearch04042024.csv",
+      "https://kirtansearchdb.s3.amazonaws.com/export-tbl_audio-kirtansearch-28-03-2024+-+tbl_artistmaster4june2024.csv",
   },
 ];
 
