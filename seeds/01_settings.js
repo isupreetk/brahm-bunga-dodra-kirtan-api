@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile"));
+import knex from "../knex";
 
 const settings_data = [
   {
