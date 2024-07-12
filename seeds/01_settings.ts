@@ -1,4 +1,5 @@
 import knex from "../knex";
+import type { Knex } from "knex";
 
 const settings_data = [
   {
@@ -12,10 +13,10 @@ const settings_data = [
   },
 ];
 
-exports.seed = function (knex) {
-  return knex("settings")
-    .del()
-    .then(() => {
-      return knex("settings").insert(settings_data);
-    });
-};
+export async function seed(knex: Knex): Promise<void> {
+  // Deletes ALL existing entries
+  await knex("settings").del();
+  
+  // Inserts seed entries
+  await knex("settings").insert(settings_data);
+}

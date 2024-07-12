@@ -15,7 +15,7 @@ const config: { [key: string]: Knex.Config } = {
       charset: "utf8",
     },
     migrations: {
-      directory: './migrations',
+      directory: './migrations/',
       extension: 'ts'
     }
   },
