@@ -1,9 +1,9 @@
-const express = require("express");
-const knex = require("knex")(require("../knexfile"));
+import express, {Request, Response} from "express";
+import knex from "../knex";
 
-const updateFileDetails = (req, res) => {
+export const updateFileDetails = (req: Request, res: Response) => {
   const { fileURL } = req.body;
-  let value;
+  let value: string;
 
   const getVersionValueWrapper = async () => {
     const getVersionValue = async () => {
@@ -49,6 +49,4 @@ const updateFileDetails = (req, res) => {
     });
 };
 
-module.exports = {
-  updateFileDetails,
-};
+// export default updateFileDetails;

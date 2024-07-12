@@ -1,7 +1,7 @@
-const express = require("express");
-const knex = require("knex")(require("../knexfile"));
+import express, {Request, Response} from "express";
+import knex from "../knex";
 
-const fetchKey = (req, res) => {
+export const fetchKey = (req: Request, res: Response) => {
   let searchParams = req.query;
 
   if (typeof searchParams.key === typeof []) {
@@ -25,6 +25,4 @@ const fetchKey = (req, res) => {
   }
 };
 
-module.exports = {
-  fetchKey,
-};
+// export default fetchKey;
