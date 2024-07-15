@@ -10,27 +10,31 @@ If you would like to run this app locally -
 
 2. Create a new schema (called kirtan in my .env example) in MySQL Workbench.
 
-3. Install dependencies:\
-   `npm i`
+3. Install dependencies.:\
+   `npm install`
 
 4. Create a .env file in the root of the project folder with the following environment variables set to your information:
 
    ```
    PORT=5050
    DB_HOST=127.0.0.1
+   DB_NAME=kirtan
    DB_USER=<your_username>
    DB_PASSWORD=<your_password>
-   DB_DATABASE=kirtan
+   NODE_ENV=development
    ```
 
-5. Configure the database:\
+5. Build the code to generate equivalent JavaScript files from TypeScript files. This should create a dist folder in your root directory.:\
+   `npm run build`
+
+6. Configure the database.:\
    `npm run migrate`
 
-6. If you would like to demo the app with seed data instead of uploading your own data file in app:\
+7. If you would like to demo the app with seed data instead of uploading your own data file in app.:\
    `npm run seed`
 
-7. Run the server:\
-   `npm start`
+8. Run the server.:\
+   `npm run serve`
 
 ### Endpoints
 
