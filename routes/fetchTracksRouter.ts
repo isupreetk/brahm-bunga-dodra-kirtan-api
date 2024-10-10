@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
-import {fetchTracks} from "../controllers/fetchTracksController";
+import {fetchTracksByPlaylistID} from "../controllers/fetchTracksController";
 
-router.route("/:playlist_id").get(fetchTracks);
+router.route("/").get(fetchTracksByPlaylistID);
 
 export default router;

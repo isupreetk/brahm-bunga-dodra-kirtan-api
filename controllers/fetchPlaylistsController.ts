@@ -1,11 +1,15 @@
-import express, {Request, Response} from "express";
+import express, { Request, Response } from "express";
 import knex from "../knex";
 
 export const fetchPlaylistsByUser = (req: Request, res: Response) => {
-  let { login_id } = req.params;
+  let { login_id } = req.query;
 
   return knex("playlist")
-    .rightOuterJoin("playlist_details", "playlist_details.playlist_id", "playlist.playlist_id")
+    .select("playlist_details.playlist_id", "playlist_details.playlist_name",
+            "playlist_details.playlist_code", "playlist_details.tracks_count",
+            "playlist_details.created_at", "playlist_details.created_by",
+            "playlist_details.modified_at", "playlist_details.modified_by")
+    .join("playlist_details", "playlist_details.playlist_id", "playlist.playlist_id")
     .where("playlist.login_id", login_id)
     .then((data) => {
       res.json(data);
@@ -14,13 +18,3 @@ export const fetchPlaylistsByUser = (req: Request, res: Response) => {
       res.send(error);
     });
 };
-
-//   return knex("playlist")
-//   .where("login_id", login_id)
-//       .then((data) => {
-//         return res.json(data);
-//       })
-//         .catch((error) => {
-//           return res.send(error);
-//         })
-// };
