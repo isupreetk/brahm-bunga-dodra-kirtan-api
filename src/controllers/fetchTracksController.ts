@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import knex from "../knex";
+import knex from "../../knex";
 
 export const fetchTracksByPlaylistID = (req: Request, res: Response) => {
   let { playlist_id } = req.query;

@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import knex from "../knex";
+import knex from "../../knex";
 
 export const fetchPlaylistsByUser = (req: Request, res: Response) => {
   let { login_id } = req.query;

@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import knex from "../knex";
+import knex from "../../knex";
 
 export const fetchKey = (req: Request, res: Response) => {
   let searchParams = req.query;
