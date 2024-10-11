@@ -1,28 +1,25 @@
-import swaggerAutogen from 'swagger-autogen';
+import swaggerJSDoc from "swagger-jsdoc";
 
-const doc = {
-    info: {
-        version: 'v1.0.0',
-        title: 'Brahm Bunga Dodra Swagger',
-        description: 'Implementation of Swagger with TypeScript'
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Brahm Bunga Dodra Swagger',
+    version: '1.0.0',
+    description:
+      'This is a REST API application made with Express. It retrieves data from JSONPlaceholder.',
+  },
+  servers: [
+    {
+      url: 'http://localhost:5050',
+      description: 'Development server',
     },
-    servers: [
-        {
-            url: 'http://localhost:5050',
-            description: ''
-        },
-    ],
-    components: {
-        securitySchemes: {
-            bearerAuth: {
-                type: 'http',
-                scheme: 'bearer',
-            }
-        }
-    }
+  ],
 };
 
-const outputFile = './swagger_output.json';
-const endpointsFiles = ['../server.ts'];
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./src/routes/*.ts'],
+};
 
-swaggerAutogen({openapi: '3.0.0'})(outputFile, endpointsFiles, doc);
+export const swaggerSpec = swaggerJSDoc(options);
