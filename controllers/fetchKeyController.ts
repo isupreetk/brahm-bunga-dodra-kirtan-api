@@ -4,23 +4,21 @@ import knex from "../knex";
 export const fetchKey = (req: Request, res: Response) => {
   let searchParams = req.query;
 
+  let searchParamsKey;
+
   if (typeof searchParams.key === typeof []) {
-    return knex("settings")
-      .where("key", "in", searchParams.key)
-      .then((data) => {
-        return res.json(data);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
-  } else {
-    return knex("settings")
-      .where("key", "in", [searchParams.key])
-      .then((data) => {
-        return res.json(data);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
+    searchParamsKey = searchParams.key;
   }
-};
+  else {
+    searchParamsKey = [searchParams.key];
+  }
+
+    return knex("settings")
+      .where("key", "in", searchParamsKey)
+      .then((data) => {
+        return res.json(data);
+      })
+      .catch((error) => {
+        return res.send(error);
+      });
+  };
