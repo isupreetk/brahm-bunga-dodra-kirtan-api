@@ -1,28 +1,23 @@
-import express, {Request, Response} from "express";
+import express, { Request, Response } from "express";
 import knex from "../knex";
 
 export const fetchKey = (req: Request, res: Response) => {
   let searchParams = req.query;
 
-  if (typeof searchParams.key === typeof []) {
-    return knex("settings")
-      .where("key", "in", searchParams.key)
-      .then((data) => {
-        return res.json(data);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
-  } else {
-    return knex("settings")
-      .where("key", searchParams.key)
-      .then((data) => {
-        return res.json(data);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
-  }
-};
+  let searchParamsKey;
 
-// export default fetchKey;
+  if (typeof searchParams.key === typeof []) {
+    searchParamsKey = searchParams.key;
+  } else {
+    searchParamsKey = [searchParams.key];
+  }
+
+  return knex("settings")
+    .where("key", "in", searchParamsKey)
+    .then((data) => {
+      return res.json({ data: data, error: null });
+    })
+    .catch((error) => {
+      return res.send({ data: null, error: error });
+    });
+};
