@@ -1,4 +1,4 @@
-import express, {Request, Response} from "express";
+import express, { Request, Response } from "express";
 import knex from "../knex";
 
 export const fetchKey = (req: Request, res: Response) => {
@@ -8,17 +8,16 @@ export const fetchKey = (req: Request, res: Response) => {
 
   if (typeof searchParams.key === typeof []) {
     searchParamsKey = searchParams.key;
-  }
-  else {
+  } else {
     searchParamsKey = [searchParams.key];
   }
 
-    return knex("settings")
-      .where("key", "in", searchParamsKey)
-      .then((data) => {
-        return res.json(data);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
-  };
+  return knex("settings")
+    .where("key", "in", searchParamsKey)
+    .then((data) => {
+      return res.json({ data: data, error: null });
+    })
+    .catch((error) => {
+      return res.send({ data: null, error: error });
+    });
+};

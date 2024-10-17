@@ -34,19 +34,17 @@ export const updateFileDetails = (req: Request, res: Response) => {
         .then((data) => {
           return knex("settings")
             .then((data) => {
-              return res.json(data);
+              return res.json({data: data, error: null});
             })
             .catch((error) => {
-              return res.send(error);
+              return res.send({data: null, error: error});
             });
         })
         .catch((error) => {
-          return res.send(error);
+          return res.send({data: null, error: error});
         });
     })
     .catch((error) => {
       return res.send(error);
     });
 };
-
-// export default updateFileDetails;

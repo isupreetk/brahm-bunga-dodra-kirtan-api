@@ -15,9 +15,9 @@ export const fetchTracksByPlaylistID = (req: Request, res: Response) => {
     return knex("playlist_tracks")
         .where("playlist_id", "in", playlist_list)
         .then((data) => {
-            res.json(data);
+            res.json({data: data, error: null});
         })
         .catch((error) => {
-            res.send(error);
+            res.send({data: null, error: error});
         });
 }
