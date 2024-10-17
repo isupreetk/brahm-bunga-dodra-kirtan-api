@@ -4,10 +4,12 @@ import {fetchKey} from "../controllers/fetchKeyController";
 
 /**
  * @swagger
- * /settings?{key}:
+ * /settings:
  *   get:
- *     summary: Retrieve a list of JSONPlaceholder users
- *     description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
+ *     tags:
+ *       - Fetch Version and FileURL settings
+ *     summary: Retrieve current Version and FileURL
+ *     description: Retrieve current Version and FileURL
  *     parameters: 
  *       - in: query 
  *         name: key
@@ -30,11 +32,11 @@ import {fetchKey} from "../controllers/fetchKeyController";
  *                       key:
  *                         type: string
  *                         description: The key.
- *                         example: Version / FileURL
+ *                         example: Version
  *                       value:
  *                         type: string
  *                         description: The values.
- *                         example: 1 / <www.the_file_url.com>
+ *                         example: 1
  */
 
 router.route("/").get(fetchKey);
