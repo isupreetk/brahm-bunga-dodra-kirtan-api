@@ -4,19 +4,21 @@ import {fetchPlaylistsByUser} from "../controllers/fetchPlaylistsController";
 
 /**
  * @swagger
- * /playlists?{login_id}:
+ * /playlists:
  *   get:
- *     summary: Retrieve a list of JSONPlaceholder users
- *     description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
+ *     tags:
+ *       - Fetch All Playlists For User
+ *     summary: Retrieve a list of playlists created by the user
+ *     description: Endpoint to retrieve a list of playlists corresponding to the logged in user
  *     parameters: 
  *       - in: query 
- *         name: key
- *         description: To determine current version and data used in the application
+ *         name: login_id
+ *         description: To get all playlists corresponding to the login_id
  *         schema: 
  *           type: string
  *     responses:
  *       200:
- *         description: Selected Key value(s) retrieved successfully.
+ *         description: Playlist(s) retrieved successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -27,14 +29,38 @@ import {fetchPlaylistsByUser} from "../controllers/fetchPlaylistsController";
  *                   items:
  *                     type: object
  *                     properties:
- *                       key:
+ *                       playlist_id:
+ *                         type: number
+ *                         description: Playlist ID.
+ *                         example: 1
+ *                       playlist_name:
  *                         type: string
- *                         description: The key.
- *                         example: Version / FileURL
- *                       value:
+ *                         description: Playlist Name.
+ *                         example: Test Playlist
+ *                       playlist_code:
+ *                         type: number
+ *                         description: Playlist Code.
+ *                         example: 123
+ *                       tracks_count:
+ *                         type: number
+ *                         description: Count of Tracks in Playlist.
+ *                         example: 1
+ *                       created_at:
  *                         type: string
- *                         description: The values.
- *                         example: 1 / <www.the_file_url.com>
+ *                         description: Date of playlist creation
+ *                         example: 2024-10-09 17:06:20
+ *                       created_by:
+ *                         type: string
+ *                         description: Logged in user name
+ *                         example: Test User
+ *                       modified_at:
+ *                         type: string
+ *                         description: Date of playlist modification
+ *                         example: 2024-10-10 17:06:20
+ *                       modified_by:
+ *                         type: string
+ *                         description: Logged in user name
+ *                         example: Test User
  */
 
 router.route("/").get(fetchPlaylistsByUser);

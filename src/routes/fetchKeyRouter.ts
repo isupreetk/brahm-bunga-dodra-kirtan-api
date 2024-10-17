@@ -9,7 +9,7 @@ import {fetchKey} from "../controllers/fetchKeyController";
  *     tags:
  *       - Fetch Version and FileURL settings
  *     summary: Retrieve current Version and FileURL
- *     description: Retrieve current Version and FileURL
+ *     description: Endpoint to retrieve current Version and FileURL
  *     parameters: 
  *       - in: query 
  *         name: key

@@ -8,8 +8,8 @@ import {fetchTracksByPlaylistID} from "../controllers/fetchTracksController";
  *   get:
  *     tags:
  *       - Fetch Tracks By Playlist ID
- *     summary: Retrieve a list of tracks from the passed playlist ID(s).
- *     description: Retrieve a list of tracks in a single or multiple playlist ID(s).
+ *     summary: Retrieve a list of tracks from the passed playlist ID(s)
+ *     description: Endpoint to retrieve a list of tracks in a single or multiple playlist ID(s)
  *     parameters: 
  *       - in: query 
  *         name: playlist_id

@@ -3,10 +3,10 @@ import swaggerJSDoc from "swagger-jsdoc";
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
-    title: 'Brahm Bunga Dodra Swagger',
+    title: 'Kirtan Swagger',
     version: '1.0.0',
     description:
-      'This is a REST API application made with Express. It retrieves data from JSONPlaceholder.',
+      'This is a REST API application made with Express. ',
   },
   servers: [
     {
