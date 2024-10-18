@@ -22,6 +22,7 @@ export async function up(knex: Knex): Promise<void> {
         table.integer("playlist_id").references("playlist.playlist_id").onUpdate("CASCADE").onDelete("CASCADE"),
         table.string("playlist_name").notNullable(),
         table.integer("playlist_code").notNullable().primary(),
+        table.integer("tracks_count").notNullable(),
         table.timestamp("created_at").notNullable(),
         table.string("created_by").notNullable(),
         table.timestamp("modified_at"),
