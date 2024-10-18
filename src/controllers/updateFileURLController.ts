@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import knex from "../knex";
+import knex from "../../knex";
 
 export const updateFileDetails = (req: Request, res: Response) => {
   const { fileURL } = req.body;
